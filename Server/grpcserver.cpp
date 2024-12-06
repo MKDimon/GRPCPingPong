@@ -20,7 +20,7 @@ void GRPCServer::startBroadcast() {
     broadcastTimer.start(1000);
     connect(&broadcastTimer, &QTimer::timeout, this, [this]() {
         QByteArray message = QString("%1:%2").arg(connectIP).arg(connectPort).toUtf8();
-        udpSocket->writeDatagram(message, QHostAddress(broadcastIP), broadcastPort);
+        udpSocket->writeDatagram(message, QHostAddress::Broadcast, broadcastPort);
         qDebug() << "Broadcasting:" << message;
     });
 }

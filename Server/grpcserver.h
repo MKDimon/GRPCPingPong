@@ -32,7 +32,6 @@ private:
     void startBroadcast();
     void stopBroadcast();
 
-    const QString broadcastIP = "127.0.0.1";
     const int broadcastPort = 10001;
 
     QString connectIP = "127.0.0.1";
