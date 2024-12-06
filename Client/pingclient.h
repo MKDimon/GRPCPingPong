@@ -44,7 +44,7 @@ private:
     void setLastPingTime(const QTime& time);
 
     const int MAX_MISSED_PINGS = 3;
-    const int PING_TIME = 2000;
+    const int PING_TIME = 5000;
 
     QTimer pingTimer;
     PingService::PingPongService::Client *m_client;

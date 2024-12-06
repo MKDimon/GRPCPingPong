@@ -12,7 +12,7 @@ BroadcastListener::BroadcastListener(ConnectingTableModel *model, QObject *paren
 {}
 
 void BroadcastListener::startListening() {
-    udpSocket->bind(QHostAddress::Any, BROADCAST_PORT, QUdpSocket::ShareAddress);
+    udpSocket->bind(QHostAddress::Any, BROADCAST_PORT, QUdpSocket::ReuseAddressHint | QUdpSocket::ShareAddress);
     connect(udpSocket, &QUdpSocket::readyRead, this, &BroadcastListener::readPendingDatagrams);
 }
 
