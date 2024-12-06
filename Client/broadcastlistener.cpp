@@ -34,10 +34,7 @@ void BroadcastListener::readPendingDatagrams() {
 }
 
 bool BroadcastListener::isNewServer(const QString &address) {
-    for (int row = 0; row < model->rowCount(); ++row) {
-        if (model->data(model->index(row, 0)).toString() == address) {
-            return false;
-        }
-    }
-    return true;
+    // В ТЗ была картинка, где два одинаковых адреса были в таблице
+    // Поэтому смотрим на последний адрес
+    return model->rowCount() == 0 || model->data(model->index(model->rowCount() - 1, 0)).toString() != address;
 }
